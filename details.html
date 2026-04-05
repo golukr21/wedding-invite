@@ -186,6 +186,31 @@ margin-bottom:40px;
         </div>
     </div>
     </div>
+    
+                <audio id="bgMusic" loop>
+                    <source src="weading.mp3" type="audio/mpeg">
+                </audio>
+    <script>
+                    let music = document.getElementById("bgMusic");
+
+                    document.getElementById("startScreen").onclick = function () {
+                        music.play();
+                        this.style.display = "none";
+                    }
+                </script>
+
+                <script>
+                    window.addEventListener("load", function () {
+                        const music = document.getElementById("bgMusic");
+
+                        function playMusic() {
+                            music.play();
+                            document.removeEventListener("click", playMusic);
+                        }
+
+                        document.addEventListener("click", playMusic);
+                    });
+                </script>
     <script>document.getElementById('rsvpForm').addEventListener('submit', function (e) {
             e.preventDefault();
 
