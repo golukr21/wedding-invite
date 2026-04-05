@@ -165,14 +165,32 @@
       padding: 50px 40px;
   }
 
-  .section-title {
-      font-family: var(--font-display);
-      font-size: 1.8rem;
-      color: var(--color-sage);
-      text-align: center;
-      margin-bottom: 25px;
-      letter-spacing: 1px;
+ .section-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--color-sage);
+  text-align: center;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+.section-titl {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-sage);
+  text-align: center;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+/* Extra spacing on mobile */
+@media (max-width: 768px) {
+  .section-title,
+  .section-titl {
+    margin-top: 50px;   /* adjust value as needed */
   }
+}
+
 
   .message {
       font-size: 1.1rem;
@@ -425,12 +443,7 @@
 .gallery-img:hover{
     transform:scale(1.06);
 }
-.video-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:25px;
-margin-bottom:20px;
-}
+
 
 .video-card{
 border-radius:15px;
@@ -440,7 +453,7 @@ box-shadow:0 5px 15px rgba(0,0,0,0.1);
 
 .video-card video{
 width:100%;
-height:220px;
+height:420px;
 object-fit:cover;
 }
 
@@ -504,4 +517,45 @@ color:#555;
 color:#222;
 font-weight:600;
 }
+/* Overlay animation */
+#startScreen {
+  animation: fadeOverlay 0.8s ease;
+}
 
+/* Image animation */
+#startScreen img {
+  animation: zoomFade 1.5s ease;
+}
+
+
+/* KEYFRAMES */
+
+/* Overlay fade */
+@keyframes fadeOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Image zoom + fade */
+@keyframes zoomFade {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Text slide + fade */
+@keyframes textFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
